@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "vercel build",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "node test.js"
   },
   "keywords": [
     "notion",
