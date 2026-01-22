@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "Backend for personal portfolio using Notion API",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "notion",
+    "portfolio",
+    "backend",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.1"
+  }
+}
