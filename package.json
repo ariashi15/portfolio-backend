@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "vercel build",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "node test.js"
   },
   "keywords": [
     "notion",
@@ -17,8 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@notionhq/client": "^2.2.15",
-    "dotenv": "^16.4.5"
+    "@notionhq/client": "^2.2.15"
   },
   "devDependencies": {
     "vercel": "^33.0.1"
