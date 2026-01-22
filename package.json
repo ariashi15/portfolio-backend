@@ -4,9 +4,9 @@
   "description": "Backend for personal portfolio using Notion API",
   "main": "api/index.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "test": "echo \"No tests specified\" && exit 0"
+    "dev": "node api.js && vercel dev",
+    "build": "node api.js && vercel build",
+    "test": "node test.js"
   },
   "keywords": [
     "notion",
@@ -17,8 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@notionhq/client": "^2.2.15",
-    "dotenv": "^16.4.5"
+    "@notionhq/client": "^2.2.15"
   },
   "devDependencies": {
     "vercel": "^33.0.1"
