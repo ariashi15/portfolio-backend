@@ -84,44 +84,25 @@ Returns API information and available endpoints.
   "message": "Portfolio Backend API",
   "version": "1.0.0",
   "endpoints": {
-    "/api/pages": "Get all pages from Notion database",
+    "/api/experiences": "Get all experiences from Notion database",
     "/api/page?id={page_id}": "Get specific page content"
   }
 }
 ```
 
-### GET /api/pages
+### GET /api/experiences
 
-Retrieves all pages from your Notion database.
+Retrieves all experiences from your Notion database.
 
 **Response:**
 ```json
 {
-  "success": true,
-  "pages": [
-    {
+  {
       "id": "page-id",
       "created_time": "2024-01-01T00:00:00.000Z",
       "last_edited_time": "2024-01-01T00:00:00.000Z",
       "properties": { /* page properties */ }
-    }
-  ]
-}
-```
-
-### GET /api/page?id={page_id}
-
-Retrieves a specific page and its content blocks.
-
-**Parameters:**
-- `id` (required): The Notion page ID
-
-**Response:**
-```json
-{
-  "success": true,
-  "page": { /* page metadata */ },
-  "blocks": [ /* page content blocks */ ]
+  }
 }
 ```
 
@@ -165,7 +146,7 @@ vercel
 portfolio-backend/
 ├── api/
 │   ├── index.js       # Main API endpoint
-│   ├── pages.js       # Get all pages from Notion
+│   ├── experiences.js # Get all experiences from Notion
 │   └── page.js        # Get specific page content
 ├── .env.example       # Example environment variables
 ├── .gitignore         # Git ignore file

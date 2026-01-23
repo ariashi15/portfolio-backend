@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     message: 'Portfolio Backend API',
     version: '1.0.0',
     endpoints: {
-      '/api/pages': 'Get all pages from Notion database',
+      '/api/experiences': 'Get all ex from Notion database',
       '/api/page?id={page_id}': 'Get specific page content',
     },
   });
