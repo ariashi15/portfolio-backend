@@ -1,14 +1,6 @@
 # Portfolio Backend
 
-A serverless backend for a personal portfolio website using the Notion API, designed to be deployed on Vercel.
-
-## Features
-
-- 🚀 Serverless architecture on Vercel
-- 📝 Notion API integration for content management
-- 🔄 RESTful API endpoints
-- 🌐 CORS enabled for cross-origin requests
-- ⚡ Fast and scalable
+Serverless backend for personal portfolio using the Notion API, designed to be deployed on Vercel.
 
 ## Prerequisites
 
@@ -71,41 +63,6 @@ npm run dev
 
 The API will be available at `http://localhost:3000`
 
-## API Endpoints
-
-### GET /api/
-
-Returns API information and available endpoints.
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Portfolio Backend API",
-  "version": "1.0.0",
-  "endpoints": {
-    "/api/experiences": "Get all experiences from Notion database",
-    "/api/page?id={page_id}": "Get specific page content"
-  }
-}
-```
-
-### GET /api/experiences
-
-Retrieves all experiences from your Notion database.
-
-**Response:**
-```json
-{
-  {
-      "id": "page-id",
-      "created_time": "2024-01-01T00:00:00.000Z",
-      "last_edited_time": "2024-01-01T00:00:00.000Z",
-      "properties": { /* page properties */ }
-  }
-}
-```
-
 ## Deployment to Vercel
 
 ### Option 1: Deploy with Vercel CLI
@@ -139,40 +96,6 @@ vercel
 |----------|-------------|----------|
 | `NOTION_API_KEY` | Your Notion integration token | Yes |
 | `NOTION_DATABASE_ID` | The ID of your Notion database | Yes |
-
-## Project Structure
-
-```
-portfolio-backend/
-├── api/
-│   ├── index.js       # Main API endpoint
-│   ├── experiences.js # Get all experiences from Notion
-│   └── page.js        # Get specific page content
-├── .env.example       # Example environment variables
-├── .gitignore         # Git ignore file
-├── package.json       # Project dependencies
-├── vercel.json        # Vercel configuration
-└── README.md          # This file
-```
-
-## Error Handling
-
-All endpoints return consistent error responses:
-
-```json
-{
-  "success": false,
-  "error": "Error message"
-}
-```
-
-Common error codes:
-- `400`: Bad request (missing required parameters)
-- `500`: Server error (Notion API issues, configuration problems)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
