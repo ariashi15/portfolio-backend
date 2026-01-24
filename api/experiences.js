@@ -1,5 +1,5 @@
 const { notion, applyCors, handleOptions } = require('../lib/client');
-const { getText } = require('../lib/parse');
+const { getText, sortById } = require('../lib/parse');
 
 module.exports = async (req, res) => {
   applyCors(res);
@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
 
     if (!databaseId) {
       return res.status(500).json({
-        error: 'NOTION_DATABASE_ID is not configured',
+        error: 'EXPERIENCES_DATABASE_ID is not configured',
       });
     }
 
@@ -33,11 +33,7 @@ module.exports = async (req, res) => {
       }
     });
 
-    pages.sort((a, b) => {
-      const id_a = parseInt(a.id);
-      const id_b = parseInt(b.id);
-      return id_a - id_b
-    });
+    pages.sort(sortById);
 
     res.status(200).json(pages);
 
