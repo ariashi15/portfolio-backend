@@ -1,25 +1,9 @@
-const { Client } = require('@notionhq/client');
-
-// Initialize Notion client
-const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
-});
+const { notion, applyCors, handleOptions } = require('../lib/client');
+const { getText } = require('../lib/parse');
 
 module.exports = async (req, res) => {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
-  // Handle OPTIONS request
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
+  applyCors(res);
+  if (handleOptions(req, res)) return;
 
   try {
     const databaseId = process.env.NOTION_DATABASE_ID;
@@ -30,19 +14,10 @@ module.exports = async (req, res) => {
       });
     }
 
-    if (!process.env.NOTION_API_KEY) {
-      return res.status(500).json({
-        error: 'NOTION_API_KEY is not configured',
-      });
-    }
-
     // Query the database
     const response = await notion.databases.query({
       database_id: databaseId,
     });
-
-    // Helper function to extract plaintext blocks from richtext
-    const getText = (rich_text = []) => rich_text.map(text_block => text_block.plain_text).join('')
 
     // Format the results
     const pages = response.results.map((page) => {
