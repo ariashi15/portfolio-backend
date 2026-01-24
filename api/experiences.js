@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
   if (handleOptions(req, res)) return;
 
   try {
-    const databaseId = process.env.NOTION_DATABASE_ID;
+    const databaseId = process.env.EXPERIENCES_DATABASE_ID;
 
     if (!databaseId) {
       return res.status(500).json({
